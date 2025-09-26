@@ -1,0 +1,401 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-principal: #128C7E;
+    --azul-claro: #25D366;
+    --naranja: #FF6B35;
+    --naranja-claro: #FF8E53;
+    --fondo-claro: #F0F0F0;
+    --fondo-blanco: #FFFFFF;
+    --texto-oscuro: #2C3E50;
+    --texto-gris: #7F8C8D;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--fondo-claro);
+    min-height: 100vh;
+    color: var(--texto-oscuro);
+}
+
+/* Banners publicitarios */
+.ad-banner {
+    background: var(--fondo-blanco);
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid var(--azul-principal);
+}
+
+.ad-container {
+    margin: 15px 0;
+    padding: 0 10px;
+}
+
+.ad-space {
+    background: linear-gradient(135deg, var(--azul-principal), var(--naranja));
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.ad-container.small-ad .ad-space {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Pantallas */
+.screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--fondo-blanco);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* Logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-1plus-sport {
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--azul-principal);
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    display: inline-block;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.plus-symbol {
+    color: var(--naranja);
+}
+
+.sport-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 3px solid var(--naranja);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.emoji-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8em;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.emoji-background::before {
+    content: "⚽🎾🏀";
+    animation: rotate-slow 6s infinite linear;
+}
+
+.logo-subtitle {
+    color: var(--naranja);
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+@keyframes rotate-slow {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Formularios */
+input, select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    font-size: 16px;
+    background: var(--fondo-blanco);
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--azul-principal);
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: all 0.3s;
+}
+
+/* Botones principales */
+button[type="submit"], .like-btn, .send-btn {
+    background: var(--azul-principal);
+    color: white;
+    width: 100%;
+}
+
+button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
+    background: var(--azul-claro);
+}
+
+/* Botones secundarios */
+.secondary-btn {
+    background: transparent;
+    color: var(--azul-principal);
+    border: 2px solid var(--azul-principal);
+}
+
+.secondary-btn:hover {
+    background: var(--azul-principal);
+    color: white;
+}
+
+/* Header principal */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--azul-principal);
+    color: white;
+    padding: 15px 20px;
+}
+
+.header-left h1 {
+    color: white;
+    margin-bottom: 0;
+}
+
+.logout-btn {
+    background: var(--naranja);
+    color: white;
+    padding: 10px 15px;
+}
+
+.logout-btn:hover {
+    background: var(--naranja-claro);
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin: 15px;
+    padding: 0 10px;
+}
+
+.filters select {
+    flex: 1;
+    background: var(--fondo-blanco);
+}
+
+/* Tarjetas de usuarios */
+.user-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px;
+    padding: 0 10px;
+}
+
+.user-card {
+    background: var(--fondo-blanco);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--naranja);
+}
+
+.user-card h3 {
+    color: var(--azul-principal);
+    margin-bottom: 10px;
+}
+
+.user-card p {
+    color: var(--texto-gris);
+    margin: 5px 0;
+}
+
+/* Navegación */
+.navigation {
+    display: flex;
+    gap: 20px;
+    margin: 20px 15px;
+    padding: 0 10px;
+}
+
+.navigation button {
+    flex: 1;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.dislike-btn {
+    background: var(--texto-gris);
+    color: white;
+}
+
+.dislike-btn:hover {
+    background: #95A5A6;
+}
+
+.like-btn {
+    background: var(--naranja);
+    color: white;
+}
+
+.like-btn:hover {
+    background: var(--naranja-claro);
+}
+
+/* Chat */
+.chat-header {
+    display: flex;
+    align-items: center;
+    background: var(--azul-principal);
+    color: white;
+    padding: 15px;
+}
+
+.back-btn {
+    background: transparent;
+    color: white;
+    font-size: 1.5em;
+    padding: 10px;
+    margin-right: 15px;
+}
+
+.chat-user-info h2 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.chat-user-info span {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9em;
+}
+
+.chat-messages {
+    background: var(--fondo-claro);
+    padding: 20px;
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.message.own {
+    background: var(--azul-claro);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.message.other {
+    background: var(--fondo-blanco);
+    color: var(--texto-oscuro);
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.chat-input-container {
+    background: var(--fondo-blanco);
+    padding: 15px;
+    border-top: 1px solid #E0E0E0;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.chat-input input {
+    flex: 1;
+    margin: 0;
+}
+
+.send-btn {
+    width: auto;
+    padding: 15px 20px;
+}
+
+/* Grupo de checkboxes */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: var(--fondo-claro);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    width: auto;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .logo-1plus-sport {
+        font-size: 2.8em;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .navigation {
+        gap: 10px;
+    }
+}
