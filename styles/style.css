@@ -13,6 +13,7 @@
     --fondo-blanco: #FFFFFF;
     --texto-oscuro: #2C3E50;
     --texto-gris: #7F8C8D;
+    --borde: #E0E0E0;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
     background: var(--fondo-claro);
     min-height: 100vh;
     color: var(--texto-oscuro);
+    line-height: 1.6;
 }
 
 /* Banners publicitarios */
@@ -61,10 +63,10 @@ body {
 }
 
 .container {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     background: var(--fondo-blanco);
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     margin-top: 20px;
@@ -73,7 +75,7 @@ body {
 /* Logo */
 .logo-container {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .logo-1plus-sport {
@@ -130,45 +132,115 @@ body {
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Formularios */
+/* Formularios - SECCIONES MEJORADAS */
+.form-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: var(--fondo-claro);
+    border-radius: 10px;
+    border-left: 4px solid var(--azul-principal);
+}
+
+.form-section h3 {
+    color: var(--azul-principal);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Campos de formulario mejorados */
 input, select {
     width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border: 2px solid #E0E0E0;
-    border-radius: 10px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid var(--borde);
+    border-radius: 8px;
     font-size: 16px;
     background: var(--fondo-blanco);
-    transition: border-color 0.3s;
+    transition: all 0.3s;
 }
 
 input:focus, select:focus {
     outline: none;
     border-color: var(--azul-principal);
+    box-shadow: 0 0 5px rgba(18, 140, 126, 0.3);
 }
 
+/* Grid de deportes */
+.sports-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.sports-grid label {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: var(--fondo-blanco);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sports-grid label:hover {
+    background: var(--azul-claro);
+    color: white;
+}
+
+.sports-grid input {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Grid de horarios */
+.schedule-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.day-schedule {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--fondo-blanco);
+    border-radius: 8px;
+}
+
+.day-schedule h4 {
+    min-width: 80px;
+    color: var(--azul-principal);
+}
+
+.day-schedule input {
+    width: 100px;
+    margin: 0 5px;
+}
+
+/* Botones mejorados */
 button {
-    padding: 15px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 8px 0;
     transition: all 0.3s;
+    font-weight: 600;
 }
 
-/* Botones principales */
-button[type="submit"], .like-btn, .send-btn {
+button[type="submit"], .like-btn, .send-btn, .register-btn {
     background: var(--azul-principal);
     color: white;
     width: 100%;
 }
 
-button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
+button[type="submit"]:hover, .like-btn:hover, .send-btn:hover, .register-btn:hover {
     background: var(--azul-claro);
+    transform: translateY(-2px);
 }
 
-/* Botones secundarios */
 .secondary-btn {
     background: transparent;
     color: var(--azul-principal);
@@ -180,7 +252,37 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
     color: white;
 }
 
-/* Header principal */
+.location-btn {
+    background: var(--naranja);
+    color: white;
+    width: 100%;
+}
+
+.location-btn:hover {
+    background: var(--naranja-claro);
+}
+
+.location-status {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.location-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.location-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Header principal mejorado */
 .header {
     display: flex;
     justify-content: space-between;
@@ -188,37 +290,70 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
     background: var(--azul-principal);
     color: white;
     padding: 15px 20px;
+    flex-wrap: wrap;
 }
 
 .header-left h1 {
     color: white;
-    margin-bottom: 0;
+    margin-bottom: 5px;
+}
+
+#userLocation {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn, .logout-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.filter-btn {
+    background: var(--fondo-blanco);
+    color: var(--azul-principal);
 }
 
 .logout-btn {
     background: var(--naranja);
     color: white;
-    padding: 10px 15px;
 }
 
-.logout-btn:hover {
-    background: var(--naranja-claro);
-}
-
-/* Filtros */
-.filters {
-    display: flex;
-    gap: 10px;
-    margin: 15px;
-    padding: 0 10px;
-}
-
-.filters select {
-    flex: 1;
+/* Panel de filtros avanzados */
+.filters-panel {
     background: var(--fondo-blanco);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
 }
 
-/* Tarjetas de usuarios */
+.filters-panel.active {
+    display: block;
+}
+
+.filter-group {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--texto-oscuro);
+}
+
+.filter-group select {
+    width: 150px;
+}
+
+/* Tarjetas de usuarios mejoradas */
 .user-cards {
     display: flex;
     flex-direction: column;
@@ -233,16 +368,56 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
     border-radius: 15px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     border-left: 5px solid var(--naranja);
+    position: relative;
 }
 
 .user-card h3 {
     color: var(--azul-principal);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
-.user-card p {
+.user-card .user-age {
+    color: var(--naranja);
+    font-weight: 600;
+}
+
+.user-card .user-distance {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--azul-claro);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+.user-card .user-sports {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.sport-tag {
+    background: var(--fondo-claro);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.user-card .user-zones {
     color: var(--texto-gris);
+    font-size: 0.9em;
     margin: 5px 0;
+}
+
+.user-card .user-schedule {
+    color: var(--texto-gris);
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--borde);
 }
 
 /* Navegación */
@@ -266,6 +441,7 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
 
 .dislike-btn:hover {
     background: #95A5A6;
+    transform: scale(1.05);
 }
 
 .like-btn {
@@ -275,9 +451,10 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
 
 .like-btn:hover {
     background: var(--naranja-claro);
+    transform: scale(1.05);
 }
 
-/* Chat */
+/* Chat mejorado */
 .chat-header {
     display: flex;
     align-items: center;
@@ -299,7 +476,7 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
     margin-bottom: 5px;
 }
 
-.chat-user-info span {
+.user-details {
     color: rgba(255,255,255,0.8);
     font-size: 0.9em;
 }
@@ -318,6 +495,7 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
     border-radius: 15px;
     max-width: 70%;
     word-wrap: break-word;
+    position: relative;
 }
 
 .message.own {
@@ -358,28 +536,6 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
     padding: 15px 20px;
 }
 
-/* Grupo de checkboxes */
-.checkbox-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background: var(--fondo-claro);
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.checkbox-group input {
-    margin-right: 10px;
-    width: auto;
-}
-
 /* Responsive para móviles */
 @media (max-width: 480px) {
     .container {
@@ -391,11 +547,67 @@ button[type="submit"]:hover, .like-btn:hover, .send-btn:hover {
         font-size: 2.8em;
     }
     
-    .filters {
+    .sports-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .day-schedule {
         flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .day-schedule h4 {
+        margin-bottom: 5px;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-group select {
+        width: 100%;
+        margin-top: 5px;
     }
     
     .navigation {
         gap: 10px;
     }
+    
+    .user-card .user-distance {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estados de carga */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
 }
