@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <!-- Pantalla de Registro -->
+    <!-- Pantalla de Registro MEJORADA -->
     <div id="registerScreen" class="screen">
         <div class="container">
             <div class="logo-container">
@@ -52,99 +52,138 @@
             </div>
             
             <form id="registerForm">
-                <input type="text" id="fullName" placeholder="Nombre completo" required>
-                <input type="email" id="newEmail" placeholder="Email" required>
-                <input type="password" id="newPassword" placeholder="Contraseña" required>
-                
-                <select id="sport" required>
-                    <option value="">Selecciona tu deporte</option>
-                    <option value="futbol">⚽ Fútbol</option>
-                    <option value="tennis">🎾 Tenis</option>
-                    <option value="hockey">🏒 Hockey</option>
-                    <option value="basquet">🏀 Baloncesto</option>
-                    <option value="rugby">🏉 Rugby</option>
-                    <option value="paddle">🎯 Pádel</option>
-                    <option value="ciclismo">🚴 Ciclismo</option>
-                    <option value="natacion">🏊 Natación</option>
-                    <option value="boxeo">🥊 Boxeo</option>
-                    <option value="artes-marciales">🥋 Artes marciales</option>
-                    <option value="voleibol">🏐 Voleibol</option>
-                    <option value="badminton">🏸 Bádminton</option>
-                    <option value="tenis-mesa">🏓 Tenis de mesa</option>
-                    <option value="golf">⛳ Golf</option>
-                    <option value="atletismo">🏃 Atletismo</option>
-                    <option value="gimnasio">🏋️ Gimnasio</option>
-                    <option value="yoga">🧘 Yoga</option>
-                    <option value="gimnasia">🤸 Gimnasia</option>
-                    <option value="frisbee">🥏 Ultimate Frisbee</option>
-                    <option value="skate">🛹 Skateboarding</option>
-                </select>
-                
-                <input type="text" id="zone" placeholder="Zona/Ciudad" required>
-                
-                <div class="availability">
-                    <h3>Horarios disponibles:</h3>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="schedule" value="morning"> 🌅 Mañanas</label>
-                        <label><input type="checkbox" name="schedule" value="afternoon"> ☀️ Tardes</label>
-                        <label><input type="checkbox" name="schedule" value="evening"> 🌙 Noches</label>
-                        <label><input type="checkbox" name="schedule" value="weekend"> 🎉 Fines de semana</label>
+                <!-- DATOS PERSONALES MEJORADOS -->
+                <div class="form-section">
+                    <h3>📝 Información personal</h3>
+                    <input type="text" id="firstName" placeholder="Nombre" required>
+                    <input type="text" id="lastName" placeholder="Apellido" required>
+                    <input type="number" id="age" placeholder="Edad" min="16" max="80" required>
+                    <input type="email" id="newEmail" placeholder="Email" required>
+                    <input type="password" id="newPassword" placeholder="Contraseña" required>
+                </div>
+
+                <!-- MÚLTIPLES DEPORTES -->
+                <div class="form-section">
+                    <h3>🏆 Deportes que practicas (máximo 3)</h3>
+                    <div class="sports-grid">
+                        <label><input type="checkbox" name="sports" value="futbol"> ⚽ Fútbol</label>
+                        <label><input type="checkbox" name="sports" value="tennis"> 🎾 Tenis</label>
+                        <label><input type="checkbox" name="sports" value="hockey"> 🏒 Hockey</label>
+                        <label><input type="checkbox" name="sports" value="basquet"> 🏀 Baloncesto</label>
+                        <label><input type="checkbox" name="sports" value="rugby"> 🏉 Rugby</label>
+                        <label><input type="checkbox" name="sports" value="paddle"> 🎯 Pádel</label>
+                        <label><input type="checkbox" name="sports" value="ciclismo"> 🚴 Ciclismo</label>
+                        <label><input type="checkbox" name="sports" value="natacion"> 🏊 Natación</label>
+                        <label><input type="checkbox" name="sports" value="boxeo"> 🥊 Boxeo</label>
+                        <label><input type="checkbox" name="sports" value="artes-marciales"> 🥋 Artes marciales</label>
                     </div>
                 </div>
-                
-                <button type="submit">Registrarse</button>
+
+                <!-- MÚLTIPLES ZONAS -->
+                <div class="form-section">
+                    <h3>📍 Zonas donde puedes jugar</h3>
+                    <input type="text" id="zone1" placeholder="Zona principal (ej: Palermo)" required>
+                    <input type="text" id="zone2" placeholder="Zona alternativa (opcional)">
+                    <input type="text" id="zone3" placeholder="Otra zona (opcional)">
+                </div>
+
+                <!-- GEOLOCALIZACIÓN -->
+                <div class="form-section">
+                    <h3>🌍 Tu ubicación</h3>
+                    <button type="button" id="detectLocation" class="location-btn">
+                        📍 Detectar ubicación automáticamente
+                    </button>
+                    <div id="locationStatus" class="location-status"></div>
+                    <input type="hidden" id="userLat">
+                    <input type="hidden" id="userLng">
+                </div>
+
+                <!-- CALENDARIO AVANZADO -->
+                <div class="form-section">
+                    <h3>🕐 Horarios disponibles</h3>
+                    <div class="schedule-grid">
+                        <div class="day-schedule">
+                            <h4>Lunes</h4>
+                            <input type="time" id="monStart"> a <input type="time" id="monEnd">
+                        </div>
+                        <div class="day-schedule">
+                            <h4>Martes</h4>
+                            <input type="time" id="tueStart"> a <input type="time" id="tueEnd">
+                        </div>
+                        <div class="day-schedule">
+                            <h4>Miércoles</h4>
+                            <input type="time" id="wedStart"> a <input type="time" id="wedEnd">
+                        </div>
+                        <div class="day-schedule">
+                            <h4>Jueves</h4>
+                            <input type="time" id="thuStart"> a <input type="time" id="thuEnd">
+                        </div>
+                        <div class="day-schedule">
+                            <h4>Viernes</h4>
+                            <input type="time" id="friStart"> a <input type="time" id="friEnd">
+                        </div>
+                        <div class="day-schedule">
+                            <h4>Sábado</h4>
+                            <input type="time" id="satStart"> a <input type="time" id="satEnd">
+                        </div>
+                        <div class="day-schedule">
+                            <h4>Domingo</h4>
+                            <input type="time" id="sunStart"> a <input type="time" id="sunEnd">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="register-btn">Registrarse</button>
             </form>
             
             <button id="showLogin" class="secondary-btn">Volver al Login</button>
         </div>
     </div>
 
-    <!-- Pantalla Principal - Matching -->
+    <!-- Pantalla Principal - Matching MEJORADA -->
     <div id="mainScreen" class="screen">
         <div class="header">
             <div class="header-left">
                 <h1>1+</h1>
-                <span>Haz match para jugar</span>
+                <span id="userLocation">📍 Cargando ubicación...</span>
             </div>
-            <button id="logout" class="logout-btn">Salir</button>
+            <div class="header-right">
+                <button id="filterBtn" class="filter-btn">⚙️ Filtros</button>
+                <button id="logout" class="logout-btn">Salir</button>
+            </div>
         </div>
         
-        <!-- Banner publicitario intermedio -->
-        <div class="ad-container">
-            <div class="ad-space">Publicidad 320x100</div>
-        </div>
-        
-        <div class="filters">
-            <select id="filterSport">
-                <option value="">Todos los deportes</option>
-                <option value="futbol">⚽ Fútbol</option>
-                <option value="tennis">🎾 Tenis</option>
-                <option value="hockey">🏒 Hockey</option>
-                <option value="basquet">🏀 Baloncesto</option>
-                <option value="rugby">🏉 Rugby</option>
-                <option value="paddle">🎯 Pádel</option>
-                <option value="ciclismo">🚴 Ciclismo</option>
-                <option value="natacion">🏊 Natación</option>
-                <option value="boxeo">🥊 Boxeo</option>
-                <option value="artes-marciales">🥋 Artes marciales</option>
-                <option value="voleibol">🏐 Voleibol</option>
-                <option value="badminton">🏸 Bádminton</option>
-                <option value="tenis-mesa">🏓 Tenis de mesa</option>
-                <option value="golf">⛳ Golf</option>
-                <option value="atletismo">🏃 Atletismo</option>
-                <option value="gimnasio">🏋️ Gimnasio</option>
-                <option value="yoga">🧘 Yoga</option>
-                <option value="gimnasia">🤸 Gimnasia</option>
-                <option value="frisbee">🥏 Ultimate Frisbee</option>
-                <option value="skate">🛹 Skateboarding</option>
-            </select>
-            
-            <select id="filterSchedule">
-                <option value="">Cualquier horario</option>
-                <option value="morning">🌅 Mañanas</option>
-                <option value="afternoon">☀️ Tardes</option>
-                <option value="evening">🌙 Noches</option>
-            </select>
+        <!-- Filtros avanzados -->
+        <div id="filtersPanel" class="filters-panel">
+            <div class="filter-group">
+                <label>Distancia máxima:</label>
+                <select id="filterDistance">
+                    <option value="5">5 km</option>
+                    <option value="10" selected>10 km</option>
+                    <option value="20">20 km</option>
+                    <option value="50">50 km</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Deporte:</label>
+                <select id="filterSport">
+                    <option value="">Todos los deportes</option>
+                    <option value="futbol">⚽ Fútbol</option>
+                    <option value="tennis">🎾 Tenis</option>
+                    <option value="hockey">🏒 Hockey</option>
+                    <option value="basquet">🏀 Baloncesto</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Edad:</label>
+                <select id="filterAge">
+                    <option value="">Cualquier edad</option>
+                    <option value="18-25">18-25 años</option>
+                    <option value="26-35">26-35 años</option>
+                    <option value="36-45">36-45 años</option>
+                    <option value="46+">46+ años</option>
+                </select>
+            </div>
         </div>
         
         <div id="userCards" class="user-cards">
@@ -155,26 +194,18 @@
             <button id="dislikeBtn" class="dislike-btn">👎</button>
             <button id="likeBtn" class="like-btn">👍</button>
         </div>
-        
-        <!-- Banner publicitario inferior -->
-        <div class="ad-container">
-            <div class="ad-space">Publicidad 300x250</div>
-        </div>
     </div>
 
-    <!-- Pantalla de Chat -->
+    <!-- Pantalla de Chat MEJORADA -->
     <div id="chatScreen" class="screen">
         <div class="chat-header">
             <button id="backToMain" class="back-btn">← Volver</button>
             <div class="chat-user-info">
                 <h2 id="chatWith"></h2>
-                <span id="chatSport"></span>
+                <div class="user-details">
+                    <span id="chatAge"></span> • <span id="chatDistance"></span>
+                </div>
             </div>
-        </div>
-        
-        <!-- Banner publicitario en chat -->
-        <div class="ad-container small-ad">
-            <div class="ad-space">Publicidad 320x50</div>
         </div>
         
         <div id="chatMessages" class="chat-messages">
