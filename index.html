@@ -12,6 +12,8 @@
         <div class="ad-space">Espacio Publicitario 320x50</div>
     </div>
 
+    <!-- ========== PANTALLAS EXISTENTES ========== -->
+
     <!-- Pantalla de Login -->
     <div id="loginScreen" class="screen active">
         <div class="container">
@@ -32,14 +34,13 @@
             
             <button id="showRegister" class="secondary-btn">¿No tienes cuenta? Regístrate</button>
             
-            <!-- Espacio publicitario en login -->
             <div class="ad-container">
                 <div class="ad-space">Publicidad 300x250</div>
             </div>
         </div>
     </div>
 
-    <!-- Pantalla de Registro MEJORADA -->
+    <!-- Pantalla de Registro -->
     <div id="registerScreen" class="screen">
         <div class="container">
             <div class="logo-container">
@@ -52,7 +53,6 @@
             </div>
             
             <form id="registerForm">
-                <!-- DATOS PERSONALES MEJORADOS -->
                 <div class="form-section">
                     <h3>📝 Información personal</h3>
                     <input type="text" id="firstName" placeholder="Nombre" required>
@@ -62,7 +62,6 @@
                     <input type="password" id="newPassword" placeholder="Contraseña" required>
                 </div>
 
-                <!-- MÚLTIPLES DEPORTES -->
                 <div class="form-section">
                     <h3>🏆 Deportes que practicas (máximo 3)</h3>
                     <div class="sports-grid">
@@ -72,65 +71,14 @@
                         <label><input type="checkbox" name="sports" value="basquet"> 🏀 Baloncesto</label>
                         <label><input type="checkbox" name="sports" value="rugby"> 🏉 Rugby</label>
                         <label><input type="checkbox" name="sports" value="paddle"> 🎯 Pádel</label>
-                        <label><input type="checkbox" name="sports" value="ciclismo"> 🚴 Ciclismo</label>
-                        <label><input type="checkbox" name="sports" value="natacion"> 🏊 Natación</label>
-                        <label><input type="checkbox" name="sports" value="boxeo"> 🥊 Boxeo</label>
-                        <label><input type="checkbox" name="sports" value="artes-marciales"> 🥋 Artes marciales</label>
                     </div>
                 </div>
 
-                <!-- MÚLTIPLES ZONAS -->
                 <div class="form-section">
                     <h3>📍 Zonas donde puedes jugar</h3>
-                    <input type="text" id="zone1" placeholder="Zona principal (ej: Palermo)" required>
-                    <input type="text" id="zone2" placeholder="Zona alternativa (opcional)">
-                    <input type="text" id="zone3" placeholder="Otra zona (opcional)">
-                </div>
-
-                <!-- GEOLOCALIZACIÓN -->
-                <div class="form-section">
-                    <h3>🌍 Tu ubicación</h3>
-                    <button type="button" id="detectLocation" class="location-btn">
-                        📍 Detectar ubicación automáticamente
-                    </button>
-                    <div id="locationStatus" class="location-status"></div>
-                    <input type="hidden" id="userLat">
-                    <input type="hidden" id="userLng">
-                </div>
-
-                <!-- CALENDARIO AVANZADO -->
-                <div class="form-section">
-                    <h3>🕐 Horarios disponibles</h3>
-                    <div class="schedule-grid">
-                        <div class="day-schedule">
-                            <h4>Lunes</h4>
-                            <input type="time" id="monStart"> a <input type="time" id="monEnd">
-                        </div>
-                        <div class="day-schedule">
-                            <h4>Martes</h4>
-                            <input type="time" id="tueStart"> a <input type="time" id="tueEnd">
-                        </div>
-                        <div class="day-schedule">
-                            <h4>Miércoles</h4>
-                            <input type="time" id="wedStart"> a <input type="time" id="wedEnd">
-                        </div>
-                        <div class="day-schedule">
-                            <h4>Jueves</h4>
-                            <input type="time" id="thuStart"> a <input type="time" id="thuEnd">
-                        </div>
-                        <div class="day-schedule">
-                            <h4>Viernes</h4>
-                            <input type="time" id="friStart"> a <input type="time" id="friEnd">
-                        </div>
-                        <div class="day-schedule">
-                            <h4>Sábado</h4>
-                            <input type="time" id="satStart"> a <input type="time" id="satEnd">
-                        </div>
-                        <div class="day-schedule">
-                            <h4>Domingo</h4>
-                            <input type="time" id="sunStart"> a <input type="time" id="sunEnd">
-                        </div>
-                    </div>
+                    <input type="text" id="zone1" placeholder="Zona principal" required>
+                    <input type="text" id="zone2" placeholder="Zona alternativa">
+                    <input type="text" id="zone3" placeholder="Otra zona">
                 </div>
 
                 <button type="submit" class="register-btn">Registrarse</button>
@@ -140,50 +88,35 @@
         </div>
     </div>
 
-    <!-- Pantalla Principal - Matching MEJORADA -->
+    <!-- Pantalla Principal - Matching -->
     <div id="mainScreen" class="screen">
         <div class="header">
             <div class="header-left">
                 <h1>1+</h1>
                 <span id="userLocation">📍 Cargando ubicación...</span>
             </div>
-            <div class="header-right">
-                <button id="filterBtn" class="filter-btn">⚙️ Filtros</button>
-                <button id="logout" class="logout-btn">Salir</button>
-            </div>
+            <button id="logout" class="logout-btn">Salir</button>
         </div>
         
-        <!-- Filtros avanzados -->
-        <div id="filtersPanel" class="filters-panel">
-            <div class="filter-group">
-                <label>Distancia máxima:</label>
-                <select id="filterDistance">
-                    <option value="5">5 km</option>
-                    <option value="10" selected>10 km</option>
-                    <option value="20">20 km</option>
-                    <option value="50">50 km</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Deporte:</label>
-                <select id="filterSport">
-                    <option value="">Todos los deportes</option>
-                    <option value="futbol">⚽ Fútbol</option>
-                    <option value="tennis">🎾 Tenis</option>
-                    <option value="hockey">🏒 Hockey</option>
-                    <option value="basquet">🏀 Baloncesto</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Edad:</label>
-                <select id="filterAge">
-                    <option value="">Cualquier edad</option>
-                    <option value="18-25">18-25 años</option>
-                    <option value="26-35">26-35 años</option>
-                    <option value="36-45">36-45 años</option>
-                    <option value="46+">46+ años</option>
-                </select>
-            </div>
+        <!-- NUEVO BOTÓN PARA MAPA DE CANCHAS -->
+        <div class="main-actions">
+            <button id="goToMap" class="action-btn map-btn">
+                🗺️ Buscar Canchas
+            </button>
+        </div>
+        
+        <div class="filters">
+            <select id="filterSport">
+                <option value="">Todos los deportes</option>
+                <option value="futbol">⚽ Fútbol</option>
+                <option value="tennis">🎾 Tenis</option>
+            </select>
+            
+            <select id="filterSchedule">
+                <option value="">Cualquier horario</option>
+                <option value="morning">🌅 Mañanas</option>
+                <option value="afternoon">☀️ Tardes</option>
+            </select>
         </div>
         
         <div id="userCards" class="user-cards">
@@ -196,15 +129,13 @@
         </div>
     </div>
 
-    <!-- Pantalla de Chat MEJORADA -->
+    <!-- Pantalla de Chat -->
     <div id="chatScreen" class="screen">
         <div class="chat-header">
             <button id="backToMain" class="back-btn">← Volver</button>
             <div class="chat-user-info">
                 <h2 id="chatWith"></h2>
-                <div class="user-details">
-                    <span id="chatAge"></span> • <span id="chatDistance"></span>
-                </div>
+                <span id="chatSport"></span>
             </div>
         </div>
         
@@ -216,6 +147,218 @@
             <div class="chat-input">
                 <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
                 <button id="sendMessage" class="send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== NUEVAS PANTALLAS ========== -->
+
+    <!-- Pantalla Mapa de Canchas -->
+    <div id="mapScreen" class="screen">
+        <div class="header">
+            <div class="header-left">
+                <h1>📍 Canchas</h1>
+                <span>Encuentra lugares para jugar</span>
+            </div>
+            <button id="backToMainFromMap" class="back-btn">← Volver</button>
+        </div>
+
+        <!-- Filtros Rápidos -->
+        <div class="quick-filters">
+            <select id="mapSportFilter">
+                <option value="">Todos los deportes</option>
+                <option value="futbol">⚽ Fútbol</option>
+                <option value="tennis">🎾 Tenis</option>
+                <option value="basquet">🏀 Baloncesto</option>
+            </select>
+            <select id="mapDistanceFilter">
+                <option value="5">5 km</option>
+                <option value="10" selected>10 km</option>
+                <option value="20">20 km</option>
+            </select>
+        </div>
+
+        <!-- Mapa -->
+        <div class="map-container">
+            <div class="map-placeholder">
+                🗺️ MAPA INTERACTIVO
+                <div class="court-marker" style="top: 30%; left: 40%;" data-court="1">⚽</div>
+                <div class="court-marker" style="top: 50%; left: 60%;" data-court="2">🎾</div>
+                <div class="court-marker" style="top: 70%; left: 30%;" data-court="3">🏀</div>
+            </div>
+        </div>
+
+        <!-- Lista de Canchas -->
+        <div class="courts-list">
+            <div class="court-card" data-court="1">
+                <div class="court-icon">⚽</div>
+                <div class="court-info">
+                    <h3>Cancha Los Pinos</h3>
+                    <p>Av. Libertador 1234 · 2.3 km</p>
+                    <div class="court-stats">
+                        <span class="players-online">👥 8 disponibles</span>
+                        <span class="court-rating">⭐ 4.5</span>
+                    </div>
+                </div>
+                <button class="view-court-btn" data-court="1">Ver</button>
+            </div>
+
+            <div class="court-card" data-court="2">
+                <div class="court-icon">🎾</div>
+                <div class="court-info">
+                    <h3>Club Tenis Norte</h3>
+                    <p>Av. Cabildo 2345 · 3.1 km</p>
+                    <div class="court-stats">
+                        <span class="players-online">👥 4 disponibles</span>
+                        <span class="court-rating">⭐ 4.8</span>
+                    </div>
+                </div>
+                <button class="view-court-btn" data-court="2">Ver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla Detalle Cancha -->
+    <div id="courtDetailScreen" class="screen">
+        <div class="header">
+            <button id="backToMap" class="back-btn">← Volver</button>
+            <div class="court-header-info">
+                <h2 id="courtName">⚽ Cancha Los Pinos</h2>
+                <span id="courtAddress">Av. Libertador 1234 · 2.3 km</span>
+            </div>
+        </div>
+
+        <!-- Info Cancha -->
+        <div class="court-detail-card">
+            <div class="court-meta">
+                <span class="rating">⭐ 4.5 (24 reviews)</span>
+                <span class="price">💵 $800/hora</span>
+                <span class="capacity">👥 Máx: 14 jugadores</span>
+            </div>
+            
+            <div class="court-features">
+                <span class="feature">🌙 Iluminación</span>
+                <span class="feature">🚿 Vestuarios</span>
+                <span class="feature">🅿️ Estacionamiento</span>
+            </div>
+        </div>
+
+        <!-- Jugadores Disponibles -->
+        <div class="available-players">
+            <h3>🎯 Jugadores Disponibles (<span id="playersCount">8</span>)</h3>
+            
+            <div class="player-card" data-player="1">
+                <div class="player-avatar">CR</div>
+                <div class="player-info">
+                    <h4>Carlos Rodríguez</h4>
+                    <p>28 años · ⭐ 4.8 · 2.1 km</p>
+                    <div class="player-stats">
+                        <span class="sport-tag">⚽ Fútbol</span>
+                        <span class="level-badge advanced">Avanzado</span>
+                    </div>
+                </div>
+                <button class="select-player-btn" data-player="1">Elegir</button>
+            </div>
+
+            <div class="player-card" data-player="2">
+                <div class="player-avatar">AG</div>
+                <div class="player-info">
+                    <h4>Ana García</h4>
+                    <p>25 años · ⭐ 4.9 · 1.8 km</p>
+                    <div class="player-stats">
+                        <span class="sport-tag">⚽ Fútbol</span>
+                        <span class="level-badge intermediate">Intermedio</span>
+                    </div>
+                </div>
+                <button class="select-player-btn" data-player="2">Elegir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla Perfil Jugador -->
+    <div id="playerProfileScreen" class="screen">
+        <div class="header">
+            <button id="backToCourt" class="back-btn">← Volver</button>
+            <h2>Perfil Jugador</h2>
+        </div>
+
+        <div class="player-profile">
+            <div class="profile-header">
+                <div class="player-avatar-large" id="profileAvatar">CR</div>
+                <div class="profile-info">
+                    <h1 id="profileName">Carlos Rodríguez</h1>
+                    <p class="player-age" id="profileAge">28 años · ⭐ 4.8</p>
+                    <p class="player-distance" id="profileDistance">📍 A 2.1 km de ti</p>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="player-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Partidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">92%</div>
+                    <div class="stat-label">Asistencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Compañeros</div>
+                </div>
+            </div>
+
+            <!-- Deportes y Niveles -->
+            <div class="sports-section">
+                <h3>🏆 Deportes</h3>
+                <div class="sports-list" id="profileSports">
+                    <div class="sport-level">
+                        <span class="sport-name">⚽ Fútbol</span>
+                        <span class="level-badge advanced">Avanzado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reseñas -->
+            <div class="reviews-section">
+                <h3>📝 Reseñas</h3>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer">Ana G.</span>
+                        <span class="review-rating">⭐ 5.0</span>
+                    </div>
+                    <p class="review-text">"Excelente compañero de juego, muy puntual y buena actitud."</p>
+                    <span class="review-date">Hace 2 semanas</span>
+                </div>
+            </div>
+
+            <!-- Botón de Acción -->
+            <div class="action-buttons">
+                <button id="inviteToPlay" class="invite-btn">🎯 Invitar a Jugar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla Chat Directo -->
+    <div id="directChatScreen" class="screen">
+        <div class="chat-header">
+            <button id="backToProfile" class="back-btn">← Volver</button>
+            <div class="chat-user-info">
+                <h2 id="directChatWith">Carlos Rodríguez</h2>
+                <span id="directChatStatus">Conectado ahora · ⭐ 4.8</span>
+            </div>
+        </div>
+
+        <div id="directChatMessages" class="chat-messages">
+            <div class="system-message">
+                💬 Chat directo - Pueden coordinar para jugar
+            </div>
+        </div>
+
+        <div class="chat-input-container">
+            <div class="chat-input">
+                <input type="text" id="directMessageInput" placeholder="Escribe un mensaje...">
+                <button id="sendDirectMessage" class="send-btn">Enviar</button>
             </div>
         </div>
     </div>
